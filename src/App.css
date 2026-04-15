@@ -1,0 +1,609 @@
+/* General Reset & Typography */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+   
+    
+}
+
+body {
+    background-color: #ffffff;
+    color: #111111;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+
+
+
+
+.menu-trigger {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  background: #ffffff8c;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+
+.menu-trigger:hover {
+  border-right: none;
+}
+
+/* Animate the hamburger bars on hover */
+.menu-trigger:hover > .bars > span:first-of-type,
+.menu-trigger:hover > .bars > span:last-of-type {
+  transform: translateY(-5px);
+  opacity: 0;
+}
+
+.menu-trigger:hover > .bars > span:nth-of-type(2) {
+  transform: scaleX(1.2);
+  transform-origin: left center;
+}
+
+/* Slide the menu out */
+.menu-trigger:hover > .menu {
+  transform: translateX(0);
+}
+
+.menu-trigger:hover > .menu > ul > li > p {
+  transform: translateY(0);
+}
+
+/* Show the vertical "MENU" text */
+.menu-trigger:hover > p {
+  transform: translateY(40px) rotate(-90deg);
+  opacity: 1;
+}
+
+.menu-trigger > p {
+  color: #371a1a;
+  margin-left: 20px;
+  transform: translateY(68px) rotate(-90deg);
+  margin-top: 30px;
+  font-weight: bold;
+  letter-spacing: .12rem;
+  transition: all .4s ease;
+  position: absolute;
+  opacity: 0;
+  font-size: .9rem;
+  z-index: 10;
+}
+
+.bars {
+  margin-left: 20px;
+  flex-direction: column;
+  
+  display: flex;
+  width: 35px;
+  height: 20px;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  
+}
+
+.bars > span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #666;
+  transition: all .4s ease;
+}
+
+/* --- The Sliding Menu Panel --- */
+.menu {
+  position:fixed;
+  top: 0;
+  left: 0;
+  background: #f6f6f6;
+  
+  height: 100vh;
+  border-right: 1px solid #ffffff3b;
+  transform: translateX(calc(-100% ));
+  transition: all .8s cubic-bezier(.785,.135,.15,.86);
+  padding: 80px 50px 50px 80px;
+  will-change: transform;
+  width: max-content;
+  opacity: 1;
+}
+
+.menu > ul {
+  list-style: none; /* Removed default ul padding/margin just in case */
+  padding: 0;
+  margin: 0;
+}
+
+.menu > ul:hover > li:not(:hover) {
+  /* Converted rgba with hex to standard rgba, The contents inthe menu*/
+  color: #c89f0c8c; 
+}
+
+.menu > ul > li {
+  color: #181815;
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding: 10px 0;
+  width: 400px;
+  overflow: hidden;
+  white-space: nowrap;
+  align-items: left;
+  justify-content: left;
+  text-align: left;
+}
+
+.menu > ul > li:first-of-type {
+  padding-top: 0;
+}
+
+.menu > ul > li:last-of-type {
+  padding-bottom: 0;
+}
+
+/* Expanded SASS @for loop for staggered animations */
+.menu > ul > li:nth-of-type(1) > p {
+  transition: transform .6s cubic-bezier(.785,.135,.15,.86) 0.1s, color .2s ease;
+}
+.menu > ul > li:nth-of-type(2) > p {
+  transition: transform .6s cubic-bezier(.785,.135,.15,.86) 0.2s, color .2s ease;
+}
+.menu > ul > li:nth-of-type(3) > p {
+  transition: transform .6s cubic-bezier(.785,.135,.15,.86) 0.3s, color .2s ease;
+}
+.menu > ul > li:nth-of-type(4) > p {
+  transition: transform .6s cubic-bezier(.785,.135,.15,.86) 0.4s, color .2s ease;
+}
+.menu > ul > li:nth-of-type(5) > p {
+  transition: transform .6s cubic-bezier(.785,.135,.15,.86) 0.5s, color .2s ease;
+}
+
+.menu > ul > li > p {
+  transform: translateY(calc(100% + 10px));
+  margin: 0; /* Reset default p margin */
+}
+
+/* --- Dribbble Link Styles --- */
+.dribbble-link {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #E04982;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.dribbble-link:before {
+  content: 'View original post on Dribbble';
+  position: absolute;
+  top: -85%;
+  left: -150px;
+  width: 180px;
+  transition: all .4s ease;
+  background: #fff;
+  color: #222;
+  border-radius: 5px;
+  padding: 10px;
+  transform: translateY(10px);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.dribbble-link:hover:before {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
+}
+
+.dribbble-link > i {
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --- Hero Section --- */
+.hero {
+    height: 80vh;
+    justify-content: center;
+    background-color: #ffffff; /* Dark theme contrast for impact */
+    color: #ffffff;
+    padding: 0 2rem;
+}
+
+.hero img{ 
+    height: 55px;
+    margin-right: 90%;
+    margin-top: 50px;
+    margin-left: 6%;
+
+}
+
+.hero-content{
+  margin-top: 100px;
+}
+
+.hero-content h1 {
+    
+    display: flex;
+    justify-content: center;
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    max-width: 650px;
+    margin: 0 auto;
+    color: #cccccc;
+}
+
+/* --- Recent Work Section --- */
+.recent-work {
+    padding: 6rem 4rem;
+    background-color: #f9f9f9;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.btn-see-all {
+    border-bottom: 2px solid #111;
+    padding-bottom: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    
+
+}
+
+/* --- Import flip--- */
+
+
+.card {
+  width: 300px;
+  height: 350px;
+  margin: 1rem auto;
+  perspective: 1000px;
+  cursor: pointer;
+  display: block;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  display: block;
+  
+  
+}
+.card-front{
+  display: block;
+  padding-top: 50%;
+}
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.card-front,
+.card-back2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+.card-front,
+.card-back3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+}
+
+
+.card-front {
+  background: #f9f9f9;
+  border: 1px solid #e5e7eb;
+}
+
+.card-back1 {
+  background-image: url('burna.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card-back2 {
+  background-image: url('davido.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card-back3 {
+  background-image: url('tiwa.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+.work-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.work-card p {
+    font-size: 0.95rem;
+    color: #666666;
+}
+
+
+
+
+
+
+
+
+
+/* The outer window that hides the overflow */
+.marquee {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+    border: 1px solid rgba(0, 0, 0, .15);
+    background-color: #ffffff;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    padding: 20px 0; /* Adds space above and below the images */
+    margin-top: 90px;
+}
+
+/* The long track holding all the images */
+.marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding-right: 4rem;
+    width: max-content; /* Forces the track to be as wide as all images combined */
+     transform: translateX(100%);
+    /* Apply the animation */
+    animation: scroll-images 15s linear infinite;
+}
+
+/* Ensure the images are a consistent size */
+.marquee-track img {
+    height: 60px; /* Adjust this based on your logos */
+    width: auto;
+    
+    object-fit: contain;
+}
+
+/* Pause the scrolling when the user hovers over it (optional but nice) */
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* The Keyframes */
+@keyframes scroll-images {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Move exactly halfway (which is the length of the first set of images) */
+        /* It will instantly snap back to 0% at this point, creating a seamless loop */
+        transform: translateX(-50%);
+    }
+}
+
+
+
+
+
+
+
+
+
+/* --- Video Section --- */
+.video-section {
+    padding: 2rem 4rem;
+    background-color: #f9f9f9;
+    color: #ffffff;
+    text-align: center;
+}
+
+.video-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2.5rem;
+    font-weight: 700;
+}
+
+.video-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: #222222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    cursor: pointer;
+    border: 1px solid #333;
+}
+
+.video-placeholder p {
+    font-size: 1.2rem;
+    color: #aaaaaa;
+    font-weight: 500;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 4rem 4rem 2rem 4rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
+}
+
+.footer-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.footer-links a {
+    font-size: 0.95rem;
+    color: #999999;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #222222;
+    padding-top: 2rem;
+    font-size: 0.85rem;
+    color: #666666;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+        text-align: center;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .recent-work, .video-section, footer {
+        padding: 3rem 1.5rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
